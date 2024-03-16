@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Link, Paper, TextField, Typography } from '@mui/material';
+import { Button, Grid, Link, Paper, TextField, Typography } from '@mui/material';
 import React from 'react';
 import '../Auth.css';
 

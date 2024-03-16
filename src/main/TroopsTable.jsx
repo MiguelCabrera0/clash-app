@@ -26,7 +26,7 @@ const TroopsTable = ({ troops }) => {
                     page * rowsPerPage,
                     page * rowsPerPage + rowsPerPage,
                 ),
-        [order, orderBy, page, rowsPerPage],
+        [order, orderBy, page, rowsPerPage, troops],
     );
     const emptyRows =
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - troops.length) : 0;
