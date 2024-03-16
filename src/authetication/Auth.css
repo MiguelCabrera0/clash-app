@@ -1,0 +1,21 @@
+.loginBox {
+    justify-content: center;
+    padding: 3px;
+    margin-top: 20px;
+}
+
+.loginForm {
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 10px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.loginForm2 {
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 10px;
+    justify-content: center;
+    padding-bottom: 50px;
+}

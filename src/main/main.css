@@ -1,0 +1,14 @@
+.mainForm {
+    display: flex;
+    justify-content: center;
+}
+
+.textForm {
+    width: 400px;
+}
+
+.dataContainer {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+}
