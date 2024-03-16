@@ -2,7 +2,7 @@ import { Button, Grid, Link, Paper, TextField, Typography } from '@mui/material'
 import React from 'react';
 import './Auth.css';
 
-const AuthTemplate = ({ onSubmit }) => {
+const AuthTemplate = ({ onSubmit, handleChangePage }) => {
     return (
         <Grid
             container
@@ -17,7 +17,7 @@ const AuthTemplate = ({ onSubmit }) => {
             >
                 <form className='loginForm' onSubmit={onSubmit}>
                     <img
-                        src='/clashIcon.png'
+                        src='/clash-app/clashIcon.png'
                         alt='clashLogo'
                         style={{ width: 150, justifySelf: 'center' }}
                     />
@@ -29,7 +29,7 @@ const AuthTemplate = ({ onSubmit }) => {
                     <Button type='submit' variant='contained'>
                         Sign In
                     </Button>
-                    <Link href="signup" style={{ justifySelf: 'end' }}>
+                    <Link onClick={() => handleChangePage('signup')} style={{ justifySelf: 'end' }}>
                         Sign Up
                     </Link>
                 </form>

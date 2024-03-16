@@ -2,7 +2,7 @@ import { Button, Grid, Link, Paper, TextField, Typography } from '@mui/material'
 import React from 'react';
 import '../Auth.css';
 
-const SignUpTemplate = ({ onSubmit }) => {
+const SignUpTemplate = ({ onSubmit, handleChangePage }) => {
     return (
         <Grid
             container
@@ -32,7 +32,7 @@ const SignUpTemplate = ({ onSubmit }) => {
                     <Button type='submit' variant='contained'>
                         Submit
                     </Button>
-                    <Link href="/signin" style={{ justifySelf: 'end' }}>
+                    <Link onClick={() => handleChangePage('signin')} style={{ justifySelf: 'end' }}>
                         Sign In
                     </Link>
                 </form>
