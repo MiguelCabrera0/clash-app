@@ -1,10 +1,13 @@
 import React from 'react';
 import AuthProvider from './authetication/AuthProvider';
+import { SnackbarProvider } from 'notistack'
 
 function App() {
 
   return (
-    <AuthProvider />
+    <SnackbarProvider>
+      <AuthProvider />
+    </SnackbarProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { Box, Chip, IconButton, Paper, Stack, TextField, Tooltip, Typography } from "@mui/material";
+import { Box, Chip, Grid, IconButton, Paper, Stack, TextField, Tooltip, Typography } from "@mui/material";
 import React from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import './main.css';
@@ -14,18 +14,34 @@ const MainTemplate = ({ onSubmit, data }) => {
     return (
         <Box>
             <form onSubmit={onSubmit} className="mainForm">
-                <TextField
-                    label="Player"
-                    id="playerId"
-                    className="textForm"
-                    InputProps={{
-                        endAdornment: (
-                            <IconButton type="submit">
-                                <SearchIcon />
-                            </IconButton>
-                        )
-                    }}
-                />
+                <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={2}
+                >
+                    <Grid item xs={4}>
+                        <TextField
+                            label="Player"
+                            id="playerId"
+                            className="textForm"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={2}>
+                        <TextField
+                            label="Token (Optional)"
+                            id="token"
+                            className="textForm"
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={1}>
+                        <IconButton type="submit">
+                            <SearchIcon />
+                        </IconButton>
+                    </Grid>
+                </Grid>
             </form>
             {data && (
                 <Paper className="dataContainer" elevation={1}>

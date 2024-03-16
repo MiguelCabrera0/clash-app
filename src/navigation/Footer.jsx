@@ -20,7 +20,7 @@ const Footer = () => {
                     }}
                 >
                     <div>
-                        <img src="/clashIcon.png" width={75} alt="Logo" />
+                        <img src="/clash-app/clashIcon.png" width={75} alt="Logo" />
                     </div>
                 </Box>
                 <Box
