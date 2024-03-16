@@ -32,7 +32,7 @@ const SignUpTemplate = ({ onSubmit, handleChangePage }) => {
                     <Button type='submit' variant='contained'>
                         Submit
                     </Button>
-                    <Link onClick={() => handleChangePage('signin')} style={{ justifySelf: 'end' }}>
+                    <Link onClick={() => handleChangePage('signin')} style={{ justifySelf: 'end', cursor: 'pointer' }}>
                         Sign In
                     </Link>
                 </form>

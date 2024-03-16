@@ -29,7 +29,7 @@ const AuthTemplate = ({ onSubmit, handleChangePage }) => {
                     <Button type='submit' variant='contained'>
                         Sign In
                     </Button>
-                    <Link onClick={() => handleChangePage('signup')} style={{ justifySelf: 'end' }}>
+                    <Link onClick={() => handleChangePage('signup')} style={{ justifySelf: 'end', cursor: 'pointer' }}>
                         Sign Up
                     </Link>
                 </form>
