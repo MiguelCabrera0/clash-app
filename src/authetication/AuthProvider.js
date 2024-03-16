@@ -3,10 +3,13 @@ import AuthContainer from "./AuthContainer";
 import SignUpContainer from "./SignUp/SignUpContainer";
 import Navigation from "../navigation/Navigation";
 import MainContainer from "../main/MainContainer";
+import { useSnackbar } from "notistack";
 
 const AuthContext = createContext();
 
 const AuthProvider = () => {
+    const url = process.env.REACT_APP_URL;
+    const { enqueueSnackbar } = useSnackbar();
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("user") || "");
     const [page, setPage] = useState(token ? 'main' : 'signin');
@@ -20,22 +23,47 @@ const AuthProvider = () => {
             setPage(pg);
         }
     };
-    const loginAction = (data) => {
-        setUser(data.user);
-        setToken(data.password);
-        localStorage.setItem("user", data.password);
-        setPage('main');
+    const loginAction = async (data) => {
+        const x = await fetch(`${url}login`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        if (x.status === 200) {
+            setUser(data.user);
+            setToken('token');
+            localStorage.setItem("user", data.password);
+            setPage('main');
+        } else {
+            enqueueSnackbar('Incorrect User or Password', { variant: 'error' });
+        }
         return;
     };
-
     const logOut = () => {
         setUser(null);
         setToken("");
         localStorage.removeItem("user");
         setPage('signin');
     };
+    const signUp = async (data) => {
+        const x = await fetch(`${url}signup`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        if (x.status === 200) {
+            enqueueSnackbar('success', { variant: 'success' });
+            loginAction(data);
+        } else {
+            enqueueSnackbar('User Already Exists', { variant: 'error' });
+        }
+    };
     return (
-        <AuthContext.Provider value={{ token, user, loginAction, logOut, handleChangePage }}>
+        <AuthContext.Provider value={{ token, user, loginAction, logOut, handleChangePage, signUp }}>
             {page === 'signin' && <AuthContainer />}
             {page === 'signup' && <SignUpContainer />}
             {page === 'main' && (
