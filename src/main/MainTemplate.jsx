@@ -26,6 +26,7 @@ const MainTemplate = ({ onSubmit, data }) => {
                             id="playerId"
                             className="textForm"
                             fullWidth
+                            disabled
                         />
                     </Grid>
                     <Grid item xs={2}>
@@ -34,10 +35,11 @@ const MainTemplate = ({ onSubmit, data }) => {
                             id="token"
                             className="textForm"
                             fullWidth
+                            disabled
                         />
                     </Grid>
                     <Grid item xs={1}>
-                        <IconButton type="submit">
+                        <IconButton type="submit" disabled>
                             <SearchIcon />
                         </IconButton>
                     </Grid>

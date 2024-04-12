@@ -28,10 +28,11 @@ const AuthProvider = () => {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
+                "Accept": "text/plain",
             },
             body: JSON.stringify(data),
-        });
-        if (x.status === 200) {
+        }).then((res) => res.text());
+        if (Number(x) === 200) {
             setUser(data.user);
             setToken('token');
             localStorage.setItem("user", data.password);
@@ -48,14 +49,14 @@ const AuthProvider = () => {
         setPage('signin');
     };
     const signUp = async (data) => {
-        const x = await fetch(`${url}signup`, {
+        const x = await fetch(`${url}Signup`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-        });
-        if (x.status === 200) {
+        }).then((res) => res.text());
+        if (Number(x) === 200) {
             enqueueSnackbar('success', { variant: 'success' });
             loginAction(data);
         } else {
